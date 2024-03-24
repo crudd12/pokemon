@@ -11,4 +11,15 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.get('/:pokemonId', async (req, res) => {
+    try {
+        const { pokemonId } = req.params
+        const pokemon = await Pokemon.find({ pokemonId })
+        res.json(pokemon)
+    } catch (error) {
+        console.log('error fetching all pokemon', error)
+        res.status(500).json({ message: 'error fetching all pokemon' })
+    }
+})
+
 module.exports = router
