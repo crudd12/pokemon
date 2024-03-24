@@ -29,7 +29,7 @@ async function getPokemon() {
         const data = await response.json()
 
         const promises = data.results.map(pokemon => {
-            return processPokemon(pokemon.url)
+            return processPokemon(pokemon.url) 
         })
 
         const pokemonToSave = await Promise.all(promises)
